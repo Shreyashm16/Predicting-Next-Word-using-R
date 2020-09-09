@@ -1,13 +1,4 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-#
-# See https://github.com/r-lib/actions/tree/master/examples#readme for
-# additional example workflows available for the R community.
-
 name: R
-
 on:
   push:
     branches: [ master ]
@@ -15,7 +6,7 @@ on:
     branches: [ master ]
   issue_comment:
     types: [created]
-
+    
 jobs:
   build:
     runs-on: macOS-latest
@@ -31,7 +22,7 @@ jobs:
           r-version: ${{ matrix.r-version }}
       - name: Install dependencies
         run: |
-          install.packages(c("remotes", "rcmdcheck"))
+          install.packages(c('remotes', 'rcmdcheck'))
           remotes::install_deps(dependencies = TRUE)
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
