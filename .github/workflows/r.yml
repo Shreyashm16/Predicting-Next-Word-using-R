@@ -28,7 +28,7 @@ jobs:
         with:
           r-version: ${{ matrix.r-version }}
       - name: Install dependencies
-        run: |
+        run: 
           remotes::install_deps(dependencies = TRUE)
         #install.packages(c("remotes", "rcmdcheck"))
           
